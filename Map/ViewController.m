@@ -205,7 +205,7 @@ static bool isMoving = NO;
 {
     UIAlertController * alertController=   [UIAlertController
                                             alertControllerWithTitle:@"You are not logged in"
-                                            message:@"For creating mood you have to be logged in via Facebook."
+                                            message:@"For creating pin with your mood you have to be logged in via Facebook."
                                             preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
@@ -458,7 +458,7 @@ static bool isMoving = NO;
 - (IBAction)movePin:(UIBarButtonItem *)sender
 {
     UIAlertController * alertController=   [UIAlertController
-                                            alertControllerWithTitle:@"Move mood to another place"
+                                            alertControllerWithTitle:@"Move pin with mood to another place"
                                             message:@"For moving pin you have to make long press on the place where you want to be this mood."
                                             preferredStyle:UIAlertControllerStyleAlert];
     

@@ -13,8 +13,6 @@
 @interface ReviewMoodViewController ()
 
 @property (nonatomic, strong) PinsDescription *currentPin;
-- (IBAction)movePin:(UIButton *)sender;
-
 
 @end
 
@@ -66,8 +64,16 @@
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     NSManagedObjectContext* context = appDelegate.managedObjectContext;
     
-    Pin *a = (Pin *)[context objectWithID:self.currentPin.contextId];
+    /*NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Pin" inManagedObjectContext:context];
     
+    [fetchRequest setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(objectID = %@)",self.currentPin.contextId];
+    [fetchRequest setPredicate:predicate];
+    */
+    
+    Pin *a = (Pin *)[context objectWithID:self.currentPin.contextId];
     [context deleteObject:a];
     [context save:nil];
 }
@@ -86,10 +92,4 @@
     }
 }
 
-- (IBAction)movePin:(UIButton *)sender
-{
-
-
-    
-}
 @end

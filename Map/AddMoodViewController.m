@@ -52,9 +52,7 @@
         }
     }
 }
-
-#pragma mark --pickerView
-
+\
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     return 1;
