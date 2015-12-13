@@ -19,21 +19,18 @@
 
 @interface ViewController () <MKMapViewDelegate, CLLocationManagerDelegate, NSFetchedResultsControllerDelegate>
 
-- (IBAction)setPinOnLocation:(UIBarButtonItem *)sender;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *locationPinButton;
-- (IBAction)showMyLocation:(UIBarButtonItem *)sender;
-- (IBAction)movePin:(UIBarButtonItem *)sender;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *movePinBtn;
-
 @property (nonatomic,strong) CLLocationManager * locationManager;
 @property (nonatomic,assign) CLLocationCoordinate2D currentCoordinate;
-
 @property(nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
-
-@property (nonatomic, assign) NSUInteger userID;
-
+@property (nonatomic, strong) NSString *userID;
 @property (nonatomic, strong) NSMutableArray *pins;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *loginButton;
+
+- (IBAction)showMyLocation:(UIBarButtonItem *)sender;
+- (IBAction)movePin:(UIBarButtonItem *)sender;
+- (IBAction)setPinOnLocation:(UIBarButtonItem *)sender;
 
 @end
 
@@ -57,7 +54,7 @@ static bool isMoving = NO;
                                    inManagedObjectContext:appDelegate.managedObjectContext];
     [fetchRequest setEntity:entity];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userId == %i", self.userID];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userId == %@", self.userID];
     [fetchRequest setPredicate:predicate];
     
     NSSortDescriptor *sort = [[NSSortDescriptor alloc]
@@ -99,7 +96,6 @@ static bool isMoving = NO;
    
     switch(type)
     {
-            
         case NSFetchedResultsChangeInsert:
             [self.pins addObject:pin];
             break;
@@ -156,13 +152,11 @@ static bool isMoving = NO;
 {
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
-    self.locationManager.distanceFilter = kCLDistanceFilterNone; //whenever we move
+    self.locationManager.distanceFilter = kCLDistanceFilterNone;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
     [self.locationManager startUpdatingLocation];
-    [self.locationManager requestWhenInUseAuthorization]; // Add This Line
-    
-    
+    [self.locationManager requestWhenInUseAuthorization];
 }
 
 -(void)handleLongPressGesture:(UIGestureRecognizer *)sender
@@ -203,7 +197,7 @@ static bool isMoving = NO;
 
 -(void)showAlert
 {
-    UIAlertController * alertController=   [UIAlertController
+    UIAlertController * alertController =   [UIAlertController
                                             alertControllerWithTitle:@"You are not logged in"
                                             message:@"For creating pin with your mood you have to be logged in via Facebook."
                                             preferredStyle:UIAlertControllerStyleAlert];
@@ -315,8 +309,12 @@ static bool isMoving = NO;
         }
 }
 
-
-/*aipnpgr_bowersescu_1449697816@tfbnw.net*/
+/*tester users:
+ aipnpgr_bowersescu_1449697816@tfbnw.net
+ Bowersescu123
+ open_kcibnwt_user@tfbnw.net
+ graph123
+ */
 -(IBAction)facebookLogin:(UIBarButtonItem *)sender
 {
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
@@ -343,6 +341,7 @@ static bool isMoving = NO;
                      {
                          NSLog(@"result is:%@",result);
                          [self fetchUserInfo];
+                         sender.title = @"Log out";
                      }
                      else
                      {
@@ -352,8 +351,6 @@ static bool isMoving = NO;
                  }
              }];
         }
-        
-        sender.title = @"Log out";
     }
     else
     {
@@ -385,13 +382,14 @@ static bool isMoving = NO;
                                          @"userId":[result objectForKey:@"id"],
                                          @"name":[result objectForKey:@"name"]
                                          };
+
                  
                  if (email.length >0 )
                  {
                      LoggedUser *currentUser = [LoggedUser loginUserWithInfo:info];
                      if (currentUser)
                      {
-                         self.userID = [userId integerValue];
+                         self.userID = [NSString stringWithFormat:@"%@",userId];
                          
                          if (self.pins)
                          {
@@ -404,7 +402,6 @@ static bool isMoving = NO;
                          
                          [NSFetchedResultsController deleteCacheWithName:@"Pin"];
                          self.fetchedResultsController = nil;
-                         
                          
                          NSMutableArray *allPins = [NSMutableArray arrayWithArray:[self.fetchedResultsController fetchedObjects]];
                          
@@ -457,7 +454,7 @@ static bool isMoving = NO;
 
 - (IBAction)movePin:(UIBarButtonItem *)sender
 {
-    UIAlertController * alertController=   [UIAlertController
+    UIAlertController * alertController = [UIAlertController
                                             alertControllerWithTitle:@"Move pin with mood to another place"
                                             message:@"For moving pin you have to make long press on the place where you want to be this mood."
                                             preferredStyle:UIAlertControllerStyleAlert];

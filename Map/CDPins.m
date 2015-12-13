@@ -13,7 +13,7 @@
 
 @implementation CDPins
 
-+ (void)addPinIntoCoreData:(PinsDescription *)userPin by:(NSUInteger)userId
++ (void)addPinIntoCoreData:(PinsDescription *)userPin by:(NSString *)userId
 {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext* context = appDelegate.managedObjectContext;
@@ -24,7 +24,7 @@
     [ob setTitle:userPin.title];
     [ob setLatitude:[NSNumber numberWithFloat: userPin.coordinate.latitude]];
     [ob setLongitude:[NSNumber numberWithFloat: userPin.coordinate.longitude]];
-    [ob setUserId:[NSNumber numberWithInteger: userId]];
+    [ob setUserId:userId];
     [ob setSubtitle:userPin.subtitle];
     [ob setDescript:userPin.descriptionOfMood];
     

@@ -15,6 +15,6 @@
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * subtitle;
 @property (nonatomic, retain) NSString * descript;
-@property (nonatomic, retain) NSNumber * userId;
+@property (nonatomic, retain) NSString * userId;
 
 @end

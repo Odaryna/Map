@@ -10,7 +10,7 @@
 
 @interface LoggedUser : NSObject
 
-@property (nonatomic) NSUInteger userID;
+@property (nonatomic, strong) NSString *userID;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *email;
 

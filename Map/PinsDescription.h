@@ -17,7 +17,6 @@
 @property (nonatomic, copy) NSString *subtitle;
 @property (nonatomic, copy) NSString *descriptionOfMood;
 @property (nonatomic, strong) NSManagedObjectID *contextId;
-
 @property (nonatomic, assign) CLLocationCoordinate2D coordinate;
 
 -(instancetype)initPinFromCD:(Pin *)pin;

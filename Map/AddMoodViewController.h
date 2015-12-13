@@ -15,12 +15,10 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerMoodView;
 @property (weak, nonatomic) IBOutlet UITextField *placeType;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionOfMood;
+@property (strong, nonatomic) PinsDescription *pin;
 
 - (IBAction)confirm;
-
-@property (strong, nonatomic) PinsDescription *pin;
--(void)setCoords:(CLLocationCoordinate2D)coords;
-
+- (void)setCoords:(CLLocationCoordinate2D)coords;
 - (void)showOldData:(PinsDescription *)currentPin;
 
 @end

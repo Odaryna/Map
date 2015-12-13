@@ -83,6 +83,7 @@
     }
     
     LoggedUser* loggedUser = [LoggedUser currentLoggedUser];
+    
     if (loggedUser)
     {
         [CDPins addPinIntoCoreData:self.pin by:loggedUser.userID];

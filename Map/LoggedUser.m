@@ -44,7 +44,6 @@
     return self;
 }
 
-//Disable init method
 -(instancetype)init
 {
     @throw [NSException exceptionWithName:@"Error" reason:@"Can't create instanse of this class. To login use method:loginUserWithInfo" userInfo:nil];
@@ -67,21 +66,18 @@
 
 + (void)parseUser:(NSDictionary *)userInfo
 {
-    //Get singleton
     LoggedUser *sharedAccount = [self sharedAccount];
     
-    //Parse userInfo
     if (userInfo)
     {
         sharedAccount.name = ![[userInfo valueForKey:@"name"] isKindOfClass:[NSNull class]] ? [userInfo valueForKey:@"name"] : nil;
-        sharedAccount.userID = ![[userInfo valueForKey:@"userId"] isKindOfClass:[NSNull class]] ? [[userInfo valueForKey:@"userId"] integerValue] : 0;
+        sharedAccount.userID = ![[userInfo valueForKey:@"userId"] isKindOfClass:[NSNull class]] ? [userInfo valueForKey:@"userId"] : nil;
         sharedAccount.email = ![[userInfo valueForKey:@"email"] isKindOfClass:[NSNull class]] ? [userInfo valueForKey:@"email"] : nil;
     }
     NSLog(@"%@",sharedAccount.name);
     
 }
 
-//Return current logged user
 +(LoggedUser *)currentLoggedUser
 {
     if (![[LoggedUser sharedAccount] loggedUser])
@@ -102,7 +98,6 @@
 }
 
 #pragma mark - NSObject override
-//Override
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"Logged user: %@ ", self.name];

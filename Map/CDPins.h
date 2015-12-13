@@ -11,6 +11,6 @@
 
 @interface CDPins : NSObject
 
-+ (void)addPinIntoCoreData:(PinsDescription *)userPin by:(NSUInteger)userId;
++ (void)addPinIntoCoreData:(PinsDescription *)userPin by:(NSString *)userId;
 
 @end

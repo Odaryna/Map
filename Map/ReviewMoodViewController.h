@@ -10,12 +10,13 @@
 #import "PinsDescription.h"
 
 @interface ReviewMoodViewController : UIViewController
+
 @property (weak, nonatomic) IBOutlet UILabel *mood;
 @property (weak, nonatomic) IBOutlet UITextField *placeType;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionOfMood;
+
 - (IBAction)editMood:(UIButton *)sender;
 - (IBAction)deleteMood:(UIButton *)sender;
-
 -(void)setPin:(PinsDescription *)pin;
 
 @end
