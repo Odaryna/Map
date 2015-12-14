@@ -21,14 +21,12 @@
 		84E1D8AC1C1F3F6E009B84B8 /* FacebookSDKStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84E1D7A31C1F3F6D009B84B8 /* FacebookSDKStrings.bundle */; };
 		84E1D8AE1C1F3F6E009B84B8 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E1D7A51C1F3F6D009B84B8 /* FBSDKCoreKit.framework */; };
 		84E1D8AF1C1F3F6E009B84B8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E1D7A61C1F3F6D009B84B8 /* FBSDKLoginKit.framework */; };
-		84E45F1C1C1624F500A87179 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E45F1B1C1624F500A87179 /* FBSDKLoginKit.framework */; };
 		84E6E0561C12EFEB002C37F5 /* PinsDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E6E0551C12EFEB002C37F5 /* PinsDescription.m */; };
 		84ED90DD1C145E9600EC5151 /* AddMoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ED90DC1C145E9600EC5151 /* AddMoodViewController.m */; };
 		84ED90E01C149BBB00EC5151 /* ReviewMoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ED90DF1C149BBB00EC5151 /* ReviewMoodViewController.m */; };
 		84EFB8E41C1766FE00CD6E2D /* LoggedUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EFB8E31C1766FE00CD6E2D /* LoggedUser.m */; };
 		84EFB8E81C177A7300CD6E2D /* Pin.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EFB8E71C177A7300CD6E2D /* Pin.m */; };
 		84EFB8EB1C177FDF00CD6E2D /* CDPins.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EFB8EA1C177FDF00CD6E2D /* CDPins.m */; };
-		84F1B7841C160C5200FF124D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F1B7831C160C5200FF124D /* FBSDKCoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +69,6 @@
 		84E1D7A31C1F3F6D009B84B8 /* FacebookSDKStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKStrings.bundle; sourceTree = "<group>"; };
 		84E1D7A51C1F3F6D009B84B8 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		84E1D7A61C1F3F6D009B84B8 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		84E45F1B1C1624F500A87179 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		84E6E0541C12EFEB002C37F5 /* PinsDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinsDescription.h; sourceTree = "<group>"; };
 		84E6E0551C12EFEB002C37F5 /* PinsDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinsDescription.m; sourceTree = "<group>"; };
 		84ED90DB1C145E9600EC5151 /* AddMoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMoodViewController.h; sourceTree = "<group>"; };
@@ -84,7 +81,6 @@
 		84EFB8E71C177A7300CD6E2D /* Pin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pin.m; sourceTree = "<group>"; };
 		84EFB8E91C177FDF00CD6E2D /* CDPins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPins.h; sourceTree = "<group>"; };
 		84EFB8EA1C177FDF00CD6E2D /* CDPins.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPins.m; sourceTree = "<group>"; };
-		84F1B7831C160C5200FF124D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../Downloads/FacebookSDKs-iOS-20151111/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,8 +88,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84E45F1C1C1624F500A87179 /* FBSDKLoginKit.framework in Frameworks */,
-				84F1B7841C160C5200FF124D /* FBSDKCoreKit.framework in Frameworks */,
 				84E1D8AE1C1F3F6E009B84B8 /* FBSDKCoreKit.framework in Frameworks */,
 				8400A0921C15E81800FCA999 /* CoreData.framework in Frameworks */,
 				84E1D8AF1C1F3F6E009B84B8 /* FBSDKLoginKit.framework in Frameworks */,
@@ -233,10 +227,8 @@
 		84F1B7851C160CB800FF124D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				84E45F1B1C1624F500A87179 /* FBSDKLoginKit.framework */,
 				84CE5D931C1249F80040535B /* MapKit.framework */,
 				8400A0911C15E81800FCA999 /* CoreData.framework */,
-				84F1B7831C160C5200FF124D /* FBSDKCoreKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
